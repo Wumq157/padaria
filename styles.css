@@ -6,34 +6,34 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: #e9d5ab;
     color: #333;
 }
 
 header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #1e90ff;
     padding: 1% 5%;
     color: white;
-    height: 15%;
+    height: 60px; /* Ajuste a altura do header */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
 }
 
 #logo img {
-    flex: 1;
     height: 5em;
-    padding: 0;
 }
 
 #padaria-nome {
-    flex: 2;
     text-align: center;
     font-size: 1.5em;
 }
 
 #actions {
-    flex: 1;
     text-align: right;
 }
 
@@ -51,18 +51,82 @@ button:hover {
 }
 
 main {
-    padding: 2%;
+    padding: 80px 2% 2%; /* Adiciona espaço para o header fixo */
 }
 
+.produto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: #e6f2ff;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
 
+.produto:hover {
+    transform: scale(1.02);
+}
+
+.produto-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.produto-descricao {
+    flex: 1;
+    padding-left: 2%;
+}
+
+.produto-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Filtro cinza transparente */
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.produto:hover .produto-overlay {
+    opacity: 1; /* Mostra a overlay ao passar o mouse */
+}
+
+.quantidade-btn {
+    background-color: #4682b4;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.adicionar-btn {
+    background-color: #32CD32;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 #cart-overlay {
     display: none; /* Começa escondido */
     position: fixed;
-    top: 0;
+    top: 60px; /* Deixa espaço para o header fixo */
     right: 0;
     width: 25%;
-    height: 100%;
+    height: 70%;
     background-color: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     z-index: 999; /* Garante que fique sobreposto a tudo */
@@ -96,88 +160,11 @@ main {
     border-bottom: 1px solid #ddd;
 }
 
-#cart-items li input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-#cart-items li .remove-btn {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
 #fechar-cart {
     align-self: flex-end;
     background-color: #4682b4;
     color: white;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-.produto {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 2%;
-    border-radius: 10px;
-    background-color: #e6f2ff;
-    transition: transform 0.3s ease;
-}
-
-.produto:hover {
-    transform: scale(1.05);
-}
-
-.produto-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.produto-descricao {
-    flex: 1;
-    padding-left: 2%;
-}
-
-.produto-overlay {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.produto:hover .produto-overlay {
-    display: flex;
-}
-
-.quantidade-btn {
-    background-color: #4682b4;
-    border: none;
-    color: white;
-    padding: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.adicionar-btn {
-    background-color: #32CD32;
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
