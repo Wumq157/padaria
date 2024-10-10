@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Padaria Online</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="logo">Logo Padaria</div>
-        <div class="title">Padaria Online</div>
-        <div class="header-buttons">
-            <button id="config-btn">Configurações</button>
-            <button id="cart-btn">Carrinho</button>
+        <div id="logo">
+            <img src="logo.png" alt="Logo da Padaria" />
+        </div>
+        <div id="padaria-nome">Padaria Delícias</div>
+        <div id="actions">
+            <button id="cart-btn">🛒 Carrinho</button>
+            <button id="login-btn">⚙️ Login</button>
         </div>
     </header>
     
-    <main>
-        <div class="product-list">
-            <!-- A lista de produtos será gerada via JS -->
-        </div>
+    <main id="produto-container">
+        <!-- Os produtos serão inseridos aqui pelo JavaScript -->
     </main>
+    
 
-    <!-- Carrinho Flutuante -->
-    <aside id="cart-panel" class="hidden">
-        <h3>Carrinho de Compras</h3>
-        <div class="cart-items"></div>
-        <div class="total-section">
-            <p>Total: R$ <span id="cart-total">0.00</span></p>
-            <button id="checkout-btn">Finalizar Compra</button>
-            <button id="clear-cart-btn">Limpar Carrinho</button>
+    <div id="cart-overlay" class="cart-overlay">
+        <div id="cart">
+            <h2>Carrinho de Compras</h2>
+            <ul id="cart-items"></ul>
+            <span>Total: R$ <span id="total-price">0.00</span></span>
+            <button id="finalizar-btn">Finalizar Compra</button>
+            <button id="limpar-btn">Limpar Carrinho</button>
         </div>
-    </aside>
+        <button id="fechar-cart">X Fechar</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
